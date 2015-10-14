@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html ng-app="TurboGolfApp" id="ng-app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angulartics/0.20.1/angulartics.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angulartics-google-analytics/0.1.1/angulartics-google-analytics.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <base href="/" />
+</head>
+
+  <body ng-controller="mainController">
+    <!--[if lt IE 7]>
+      <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <h1>Golf</h1>
+
+    <div id="main_content" class="view-animate {{ pageClass }} view fadein fadeout" ui-view></div>
+
+    <footer class="clearfix">
+
+    </footer>
+
+</body>
+</html>
