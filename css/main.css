@@ -3,7 +3,6 @@ html {
 	height:660px;
 	-webkit-font-smoothing: antialiased;
 	font-family: "Open Sans", "helvetica neue", helvetica, arial, verdana, sans-serif;
-	overflow: hidden;
 }
 body {
 	height: 100%;
@@ -21,7 +20,101 @@ main {
 	position: relative;
 	margin: 0 auto;
 }
-/*FIELD*/
+
+/*BOX*/
+.box {
+	height: 410px;
+	width: 85%;
+	margin: 60px auto;
+	display: table;
+	background-color: #fff;
+	border-radius: 8px;
+	position:relative;
+}
+.box-content {
+	display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    overflow: hidden;	
+	padding: 0 18%;
+}
+.box h1 {
+	font-weight: 300;
+	width: 100%;
+	color: #192b73;
+	font-size: 24px;
+    line-height: 2;
+}
+.box h1.underline {
+	width: 95%;
+	border-bottom: 1px solid rgba(25,43,115,0.30);
+}
+.box h1.breaker{
+	line-height: 1.35;
+}
+.box p {
+	font-size: 13px;
+	line-height: 1.5;
+}
+.button.next {
+	position: absolute;
+    bottom: 15px;
+	right: 15px;
+    width: 100px;
+	text-decoration:none !important;
+}
+
+.button p{
+	color:#81bc00;
+	line-height: 1;	
+	 -moz-transition: all .2s linear;
+	 -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+.button p:hover{
+	color:#4e7100;	
+}
+.dot, .dot::after, .dot::before {
+	position: absolute;
+	right: 0;
+	top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: -moz-linear-gradient(top,#9be100,#88c700);
+    -moz-transform: scale(.9);		
+    background: -webkit-gradient(radial,center center,0,center center,100,from(#9be100),to(#88c700));
+    background: radial-gradient(circle,#9be100,#88c700);
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+}
+
+.dot::after, .dot::before {
+	content: "";
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+	opacity: 0.5;
+	z-index: -1;
+	-webkit-animation: pulse-anim 2s infinite;
+	animation: pulse-anim 2s infinite;
+}
+.dot::after {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;	
+}
+@keyframes pulse-anim{
+	to {
+		-webkit-transform: scale(1.5);
+		-moz-transform: scale(1.5);
+    	transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+	
+
+
+/*GAME FIELD*/
 .field {
 	position: relative;
 	height: 540px;
@@ -33,6 +126,13 @@ main {
 	position: absolute;
 	bottom: 0;
 	/*background-color: red;*/
+}
+
+.ball {
+	position: absolute;
+	top: 200px;
+	left: 525px;
+	z-index: 10;
 }
 
 .ball img {
@@ -112,34 +212,6 @@ main {
 	top: 120px;
 	
 }
-/*BALLS*/
-
-.ball {
-	position: absolute;
-	top: 200px;
-	left: 525px;
-	z-index: 10;
-}
-
-/*
-.ball-one, .ball-two {
-	animation: ball-one-anim ease-in;	
-}
-
-.ball {
-	animation-direction: normal;
-	animation-duration: 5s;
-}
-
-@keyframes ball-one-anim{
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-*/
 
 /* leaving animations ----------------------------------------- */
 /* rotate and fall */
@@ -216,7 +288,7 @@ main {
     opacity: 0;
 }
 
-/*.view {
-    position: absolute;
-    width: 100%;
-}*/
+.view {
+    /*position: absolute;
+    width: 100%;*/
+}

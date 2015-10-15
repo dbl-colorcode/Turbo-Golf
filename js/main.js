@@ -9,17 +9,52 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
     $stateProvider
 
-      .state('game_1', {
-          templateUrl: '/templates/game_1.html',
+      .state('step_1', {
+          templateUrl: '/templates/intro.html',
           url:'/1'
       })
       .state('step_2', {
-          templateUrl: '/templates/step_2.html',
+          templateUrl: '/templates/demo_1.html',
           controller: 'step2Controller',
           url:'/2'
       })
+      .state('step_3', {
+          templateUrl: '/templates/demo_2.html',
+          url:'/3'
+      })	  
+	  .state('step_4', {
+          templateUrl: '/templates/game.html',
+          url:'/4'
+      })
+	  .state('step_5', {
+          templateUrl: '/templates/breaker_1.html',
+          url:'/5'
+      })
+	  .state('step_6', {
+          templateUrl: '/templates/game.html',
+          url:'/6'
+      })
+	  .state('step_7', {
+          templateUrl: '/templates/breaker.html',
+          url:'/7'
+      })
+	  .state('step_8', {
+          templateUrl: '/templates/game.html',
+          controller: 'step8Controller',
+          url:'/8'
+      })
+	  .state('step_9', {
+          templateUrl: '/templates/breaker.html',
+          controller: 'step9Controller',
+          url:'/9'
+      })
+	  .state('step_10', {
+          templateUrl: '/templates/end.html',
+          controller: 'step10Controller',
+          url:'/10'
+      })	  
       .state('main', {
-         templateUrl: '/templates/game_1.html',
+         templateUrl: '/templates/intro.html',
           url:'/'
       })
 
@@ -60,6 +95,7 @@ app.controller( "mainController",
 		$scope.pauseButton = function (){
 			pauseGame();
 		}
+		
     }
 );
 

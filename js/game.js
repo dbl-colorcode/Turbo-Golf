@@ -249,13 +249,27 @@ function updateScoreBlue() {
 	scoreBlue = scoreBlue + 1;
 	$("#score-blue").html(scoreBlue);
 	document.getElementById('hole-in-one').play();
+	checkForWin();
 }
 function updateScoreGreen() {
 	scoreGreen = scoreGreen + 1;
 	$("#score-green").html(scoreGreen);
 	document.getElementById('hole-in-one').play();
+	checkForWin();
 }			
 
+var timeCompleted;
+
+function checkForWin(){
+		if ((scoreBlue+scoreGreen)>= 1){
+			//window.location.replace("/#/1");//set variable clock & clear game - overvej bare at vise det på samme frame.
+			timeCompleted = count;
+			alert ("hurra for en smartspiller" + timeCompleted);
+			count = 120;
+			clearInterval(counter);
+			clearInterval(batterUpInterval);
+		}
+}
 
 
 //Timer///////////////
