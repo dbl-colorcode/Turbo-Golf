@@ -1,0 +1,25 @@
+<main>
+  <section class="field">
+    <div class="holes">
+      <div id="flag-green" class="flag"><img src="img/green-flag.png" alt="Grønt flag"></div>
+      <div id="flag-blue" class="flag"><img src="img/blue-flag.png" alt="Blåt flag"></div>
+    </div>
+    <div class="fly-by"> </div>
+  </section>
+  <section class="scoreboard">
+    <div id="score-blue" class="score">0</div>
+    <div id="score-green" class="score">0</div>
+    <div class="timer">
+      <div id="counter-1" class="counter">0</div>
+      <div id="counter-2" class="counter">2</div>
+      <div class="colon">:</div>
+      <div id="counter-3" class="counter">0</div>
+      <div id="counter-4" class="counter">0</div>
+    </div>
+  </section>
+  <div class="controls play" ng-click="startButton()"> START </div>
+  <div class="controls pause" ng-click="pauseButton()"> PAUSE </div>
+  <audio id="hole-in-one" src="audio/hole_in_one.mp3" preload="auto"></audio>
+  <audio id="golf-shot" src="audio/golf_shot.mp3" preload="auto"></audio>
+</main>
+

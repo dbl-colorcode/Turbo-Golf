@@ -1,22 +1,18 @@
 // JavaScript Document
 
-
-$( document ).ready(function() {
+function startGame() {
 	"use strict";
-
-//Set sound////////////////
-document.getElementById("golf-shot").volume = 0.1;	
-
-//Controls//////////////////
-$(".controls.play").click(function(){
 	counter = window.setInterval(timer, 1000);
 	batterUpInterval = window.setInterval(batterUp, 1000);
-	//$(".controls.play").remove();
-});
-$(".controls.pause").click(function(){
+	$(".controls.play").remove();
+	console.log("lets get going");
+}
+
+function pauseGame(){
 	clearInterval(counter);
 	clearInterval(batterUpInterval);
-});
+}
+
 
 //Batter up/////////////////////
 var batterUpInterval;
@@ -100,6 +96,7 @@ var bounceEight = {
   };   
  
  function swingSound(){
+	document.getElementById("golf-shot").volume = 0.2;
 	document.getElementById('golf-shot').play();  
  }
 
@@ -259,6 +256,8 @@ function updateScoreGreen() {
 	document.getElementById('hole-in-one').play();
 }			
 
+
+
 //Timer///////////////
 var count = 120;
 var counter;
@@ -286,7 +285,11 @@ function timer() {
 	}		
 	$("#counter-4").html(secondsString.slice(-1));		
 }
-	
+
+
+$( document ).ready(function() {
+	"use strict";		
+
 //Prevent window scroll on arrow////////////////////
 	window.addEventListener("keydown", function(event) {
     if([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
