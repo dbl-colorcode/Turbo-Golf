@@ -1,5 +1,4 @@
-var app = angular.module("TurboGolfApp", ['ui.router', 'ngAnimate', 'angulartics', 'angulartics.google.analytics', 'ngCookies']);
-
+var app = angular.module("TurboGolfApp", ['ui.router', 'ngAnimate', 'angulartics', 'angulartics.google.analytics']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -15,6 +14,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       })
       .state('step_2', {
           templateUrl: 'Assima-TurboGolf/templates/step_2.html',
+          controller: 'step2Controller',
           url:'/2'
       })
       .state('main', {
@@ -50,35 +50,18 @@ app.run(['$rootScope', '$urlRouter', function ($rootScope, $urlRouter) {
 
 
 app.controller( "mainController",
-    function( $scope, $rootScope, $analytics, $cookies, $state) {
+    function( $scope, $rootScope, $analytics, $state) {
         console.log('hello from main controller');
 
-        $scope.pageClass = 'page-main';
 
-        $rootScope.$on('$stateChangeStart',
-        function(event, toState, toParams, fromState, fromParams){
-            $scope.pageClass = toState.name;
-        });
+    }
+);
 
-        /*$scope.$watch(function () {
-            return $cookies.get('cookies-accepted');
-        }, function (value) {
-            if(value)
-                $scope.cookiesVisible = false;
-        });
-        //TODO call accept cookies
-        $scope.acceptCookies = function () {
-            $cookies.put('cookies-accepted', true);
-        };
-        */
 
-        //Public functions
-        $scope.nextStep = function(){
-            var current_state = $state.current.name;
-            console.log('$state.current.name', $state.current.name);
-
-        }
-
+app.controller( "step2Controller",
+    function( $scope, $rootScope, $analytics, $state) {
+        console.log('hello from step2Controller');
+        $scope.myVariable = "Hej";
 
     }
 );
