@@ -1,6 +1,5 @@
-<main class="game-1">
+<main class="game-2">
   <section class="field">
-  
     <div class="holes">
       <div id="flag-green" class="flag"><img src="img/green-flag.png" alt="Grønt flag"></div>
       <div id="flag-blue" class="flag"><img src="img/blue-flag.png" alt="Blåt flag"></div>
@@ -12,38 +11,28 @@
     <div id="score-green" class="score">0</div>
     <div class="timer">
       <div id="counter-1" class="counter">0</div>
-      <div id="counter-2" class="counter">2</div>
+      <div id="counter-2" class="counter">1</div>
       <div class="colon">:</div>
-      <div id="counter-3" class="counter">0</div>
+      <div id="counter-3" class="counter">3</div>
       <div id="counter-4" class="counter">0</div>
     </div>
   </section>
     <div class="button-container">
        <a class="button controls play" ng-click="startButton()">
-                  <p>Start runde 1</p>    
+                  <p>Start runde 3</p>    
                   <div class="dot"><img src="../img/arrow.png" alt="Næste" /></div>
         </a>
     </div>
   <audio id="hole-in-one" src="audio/hole_in_one.mp3" preload="auto"></audio>
   <audio id="golf-shot" src="audio/golf_shot.mp3" preload="auto"></audio>
-    <div class="box-wrapper succes">
+    <div class="box-wrapper succes failure">
         <section class="box">
             <div class="box-content">
-			<h1 class="breaker">Det klarede du flot – lad os se om du kan klare dig lige så godt, når vi sætter tempoet lidt op.</h1>
+			<h1 class="breaker">Du klarede dig rigtig godt i starten</h1>
+            <p>Vi satte herefter hastigheden op, og så blev spillet for svært for dig. Du fik brug for hjælp.</p>
             </div>
-            <a class="button next" ui-sref="step_5()">
-                <p>Prøv igen</p>    
-                <div class="dot"><img src="../img/arrow.png" alt="Næste" /></div>
-            </a>
-        </section>
-    </div>
-    <div class="box-wrapper failure">
-        <section class="box">
-            <div class="box-content">
-			<h1 class="breaker">Du fik desværre kun <span class="total-score"></span> bolde i hul. Når du er klar kan du forsøge igen.</h1>
-            </div>
-            <a class="button next" ng-click="startButton()">
-                <p>Forsøg igen</p>    
+            <a class="button next" ui-sref="step_7()">
+                <p>Fortsæt</p>    
                 <div class="dot"><img src="../img/arrow.png" alt="Næste" /></div>
             </a>
         </section>

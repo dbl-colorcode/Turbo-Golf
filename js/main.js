@@ -15,7 +15,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       })
       .state('step_2', {
           templateUrl: '/templates/demo_1.html',
-          controller: 'step2Controller',
           url:'/2'
       })
       .state('step_3', {
@@ -24,18 +23,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       })	  
 	  .state('step_4', {
           templateUrl: '/templates/game.html',
-          url:'/4'
+          controller: 'step4Controller',
+		  url:'/4'
       })
 	  .state('step_5', {
-          templateUrl: '/templates/breaker_1.html',
+          templateUrl: '/templates/game_2.html',
           url:'/5'
       })
 	  .state('step_6', {
-          templateUrl: '/templates/game.html',
+          templateUrl: '/templates/game_3.html',
           url:'/6'
       })
 	  .state('step_7', {
-          templateUrl: '/templates/breaker.html',
+          templateUrl: '/templates/intro.html',
           url:'/7'
       })
 	  .state('step_8', {
@@ -100,10 +100,8 @@ app.controller( "mainController",
 );
 
 
-app.controller( "step2Controller",
+app.controller( "step4Controller",
     function( $scope, $rootScope, $analytics, $state) {
-        console.log('hello from step2Controller');
-        $scope.myVariable = "Hej";
 
     }
 );

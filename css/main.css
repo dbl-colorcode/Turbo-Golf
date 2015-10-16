@@ -9,7 +9,6 @@ body {
 	width: 100%;
 	margin: 0;
 	background: url("../img/background.jpg") no-repeat;
-	background-position: -189px -290px;
 	overflow-y: hidden;
 }
 div {
@@ -22,9 +21,15 @@ main {
 }
 
 /*BOX*/
+.box-wrapper {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: none;	
+}
 .box {
 	height: 410px;
-	width: 85%;
+	width: 870px;
 	margin: 60px auto;
 	display: table;
 	background-color: #fff;
@@ -33,6 +38,7 @@ main {
 }
 .box-content {
 	display: table-cell;
+	width: 870px;
     vertical-align: middle;
     height: 100%;
     overflow: hidden;	
@@ -56,15 +62,28 @@ main {
 	font-size: 13px;
 	line-height: 1.5;
 }
-.button.next {
+.button-container {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #fff;
+	height: 40px;
+	width: 180px;
+	position:absolute;
+    top: 220px;
+    left: 412px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.button {
+	cursor:pointer;
 	position: absolute;
-    bottom: 15px;
-	right: 15px;
-    width: 100px;
 	text-decoration:none !important;
 }
 
 .button p{
+	padding-right: 50px;
 	color:#81bc00;
 	line-height: 1;	
 	 -moz-transition: all .2s linear;
@@ -73,6 +92,21 @@ main {
 }
 .button p:hover{
 	color:#4e7100;	
+}
+
+.button.next {
+    bottom: 15px;
+	right: 15px;
+}
+
+.controls p {
+	margin: 10px;
+	    padding-right: 40px;
+
+}
+.controls.pause {
+	top: 120px;
+	
 }
 .dot, .dot::after, .dot::before {
 	position: absolute;
@@ -111,13 +145,10 @@ main {
 	}
 }
 
-	
-
-
 /*GAME FIELD*/
 .field {
 	position: relative;
-	height: 540px;
+	height: 532px;
 	width: 100%;
 }
 .holes {
@@ -141,11 +172,12 @@ main {
 .flag {
 	position: absolute;
 	height: 25px;
-	width: 25px;
+	width: 35px;
+	top: -2px;
 }
 .flag img {
 	    bottom: 5px;
-    right: -2px;
+    right: 3px;
 	position:absolute;
 }
 #flag-blue {
@@ -159,11 +191,20 @@ main {
 	position: relative;
 	height: 120px;
 	width: 100%;
-	/*background-color: whitesmoke;*/
+}
+.scoreboard::before {
+	content:"";
+		background: url("../img/bar.png") no-repeat;
+		    width: 995px;
+    height: 189px;
+	    top: -25px;
+    left: 14px;
+    z-index: -1;
+	position:absolute;
 }
 .score {
 	position: absolute;
-	top: 33px;
+	top: 43px;
 	font-size: 28px;
 	font-weight: bold;
 }
@@ -179,7 +220,7 @@ main {
 	width: 225px;
 	margin: 0 auto;
 	font-size: 60px;
-	padding-top: 30px;
+	padding-top: 25px;
 }
 .counter {
 	float: left;
@@ -192,26 +233,153 @@ main {
 	padding-left: 5px;
 	padding-bottom: 5px;
 	line-height: 1.05;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 .counter:last-child {
 	margin: 0;
 }
 .colon {
 	float: left;
-	margin: -8px 8px 0px 0px;
+	margin: -8px 7px 0px -1px;
 }
 
-
-.controls {
-	position:absolute;
-	top: 100px;
-	left: 100px;
-	cursor: pointer;
+/*DEMO*/
+.demo {
+	position: relative;
+	height: 100px;
 }
-.controls.pause {
-	top: 120px;
+.controls-demo {
+	width: 240px;
+	height: auto;
+	padding-left: 30px;
 	
 }
+.message {
+	position: absolute;
+	opacity: 0;
+}
+.flag-demo {
+	position: absolute;
+	right: 0;
+	opacity: 0;
+}
+
+.flag-demo.blue{
+	animation: flag-blue-anim;
+}
+.flag-demo.green{
+	animation: flag-green-anim;
+}
+.message-1 {
+	animation: message-1-anim;
+}
+.message-2 {
+	animation: message-2-anim;
+	left: 80px;
+}
+.message-3 {
+	animation: message-3-anim;
+}
+.message-4 {
+	animation: message-4-anim;
+	left: 80px;
+}
+.flag-demo.blue, .flag-demo.green, .message-1, .message-2, .message-3, .message-4 {
+	animation-fill-mode: forwards;
+	animation-iteration-count:infinite;
+	animation-duration: 25s;
+	animation-timing-function:linear;
+	
+}
+	
+@keyframes message-1-anim{
+	0%, 20%, 60%, 100%{
+		opacity: 0;
+	}
+	22.5%, 57.5%{
+		opacity: 1;
+	}
+	30%, 35%{
+		transform: scale(1);	
+	}
+	31%, 34%{
+		transform: scale(0.9);
+	}
+}
+@keyframes message-2-anim{
+	0%, 20%, 60%, 100%{
+		opacity: 0;
+	}
+	22.5%, 57.5%{
+		opacity: 1;
+	}
+	50%, 55%{
+		transform: scale(1);	
+	}
+	51%, 54%{
+		transform: scale(0.9);
+	}
+}
+@keyframes message-3-anim{
+	0%, 60%, 100%{
+		opacity: 0;
+	}
+	62.5%, 97.5%{
+		opacity: 1;
+	}
+	70%, 75%{
+		transform: scale(1);	
+	}
+	71%, 74%{
+		transform: scale(0.9);
+	}
+}
+@keyframes message-4-anim{
+	0%, 60%, 100%{
+		opacity: 0;
+	}
+	62.5%, 97.5%{
+		opacity: 1;
+	}
+	90%, 95%{
+		transform: scale(1);	
+	}
+	91%, 94%{
+		transform: scale(0.9);
+	}
+}
+@keyframes flag-blue-anim{
+	0%, 60%, 100%{
+		opacity: 0;
+	}
+	15%, 55%{
+		opacity: 1;
+	}
+	30%, 55% {
+		right: 0;
+	}
+	35%, 50% {
+		right: 150px;
+	}
+}
+@keyframes flag-green-anim{
+	0%, 60%, 100%{
+		opacity: 0;
+	}
+	65%, 95%{
+		opacity: 1;
+	}
+	70%, 95% {
+		right: 0;
+	}
+	75%, 90% {
+		right: 150px;
+	}	
+}
+
+
 
 /* leaving animations ----------------------------------------- */
 /* rotate and fall */

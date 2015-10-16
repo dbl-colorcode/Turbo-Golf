@@ -1,14 +1,31 @@
 // JavaScript Document
 
+var count = 0;
+var counter;
+var timeCompleted;
+var delaySwing;
+var scoreBlue = 0;
+var scoreGreen = 0;
+
 function startGame() {
 	"use strict";
 	counter = window.setInterval(timer, 1000);
-	batterUpInterval = window.setInterval(batterUp, 1000);
-	$(".controls.play").remove();
-	console.log("lets get going");
+	if ($("main").hasClass("game-2")){
+		batterUpInterval = window.setInterval(batterUp, 500);
+		count = 30;
+	} else {
+		batterUpInterval = window.setInterval(batterUp, 1000);
+		count = 15;
+	}		
+	$(".button-container").remove();
+	count = 15;
+	scoreBlue = 0;
+	scoreGreen = 0;
+	$(".box-wrapper").css("display", "none");
 }
 
 function pauseGame(){
+	"use strict";
 	clearInterval(counter);
 	clearInterval(batterUpInterval);
 }
@@ -16,7 +33,6 @@ function pauseGame(){
 
 //Batter up/////////////////////
 var batterUpInterval;
-
 var ballElement = '<img src="img/ball.png">';
 //blue
 var ballOne = '<div class="ball curve-one bounce-one">'+ballElement+'</div>';	
@@ -30,81 +46,78 @@ var ballSeven = '<div class="ball curve-seven bounce-seven">'+ballElement+'</div
 var ballEight = '<div class="ball curve-eight bounce-eight">'+ballElement+'</div>';
 //blue
 var curveOne = {
-    start: {x: 500,y: 175,angle: 90,length: 1},
-    end: {x:50,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: 90,length: 1},
+	end: {x:50,y:495,angle: 0,length: 0}
   };
 var bounceOne = {
-    start: {x:50,y:520,angle: 140,length: 0.60},
-    end: {x:0,y:1200,angle: 0,length: 0}
+	start: {x:50,y:495,angle: 140,length: 0.60},
+	end: {x:0,y:1200,angle: 0,length: 0}
   }; 
 var curveTwo = {
-    start: {x: 500,y: 175,angle: 100,length: 1.1},
-    end: {x:150,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: 100,length: 1.1},
+	end: {x:150,y:495,angle: 0,length: 0}
   };
 var bounceTwo = {
-    start: {x:150,y:520,angle: 140,length: 0.60},
-    end: {x:50,y:1200,angle: 0,length: 0}
+	start: {x:150,y:495,angle: 140,length: 0.60},
+	end: {x:50,y:1200,angle: 0,length: 0}
    };
 var curveThree = {
-    start: {x: 500,y: 175,angle: 120,length: 1.25},
-    end: {x:250,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: 120,length: 1.25},
+	end: {x:250,y:495,angle: 0,length: 0}
   };
 var bounceThree = {
-    start: {x:250,y:520,angle: 160,length: 0.75},
-    end: {x:150,y:1200,angle: 0,length: 0}
+	start: {x:250,y:495,angle: 160,length: 0.75},
+	end: {x:150,y:1200,angle: 0,length: 0}
   };    
 var curveFour = {
-    start: {x: 500,y: 175,angle: 150,length: 1.5},
-    end: {x:350,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: 150,length: 1.5},
+	end: {x:350,y:495,angle: 0,length: 0}
   };
 var bounceFour = {
-    start: {x:350,y:520,angle: 160,length: 0.50},
-    end: {x:300,y:1200,angle: 0,length: 0}
+	start: {x:350,y:495,angle: 160,length: 0.50},
+	end: {x:300,y:1200,angle: 0,length: 0}
   }; 
 //green
 var curveFive = {
-    start: {x: 500,y: 175,angle: -150,length: 1.5},
-    end: {x:650,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: -150,length: 1.5},
+	end: {x:650,y:495,angle: 0,length: 0}
   };
 var bounceFive = {
-    start: {x:650,y:520,angle: -160,length: 0.50},
-    end: {x:700,y:1200,angle: 0,length: 0}
+	start: {x:650,y:495,angle: -160,length: 0.50},
+	end: {x:700,y:1200,angle: 0,length: 0}
   };  
 var curveSix = {
-    start: {x: 500,y: 175,angle: -120,length: 1.25},
-    end: {x:750,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: -120,length: 1.25},
+	end: {x:750,y:495,angle: 0,length: 0}
   };
 var bounceSix = {
-    start: {x:750,y:520,angle: -160,length: 0.75},
-    end: {x:850,y:1200,angle: 0,length: 0}
+	start: {x:750,y:495,angle: -160,length: 0.75},
+	end: {x:850,y:1200,angle: 0,length: 0}
    };
 var curveSeven = {
-    start: {x: 500,y: 175,angle: -100,length: 1.1},
-    end: {x:850,y:520,angle: 0,length: 0}
+	start: {x: 512,y: 175,angle: -100,length: 1.1},
+	end: {x:850,y:495,angle: 0,length: 0}
   };
 var bounceSeven = {
-    start: {x:850,y:520,angle: -140,length: 0.60},
-    end: {x:950,y:1200,angle: 0,length: 0}
+	start: {x:850,y:495,angle: -140,length: 0.60},
+	end: {x:950,y:1200,angle: 0,length: 0}
   };
 var curveEight = {
-   start: {x: 500,y: 175,angle: -90,length: 1},
-    end: {x:950,y:520,angle: 0,length: 0}
+   start: {x: 512,y: 175,angle: -90,length: 1},
+	end: {x:950,y:495,angle: 0,length: 0}
   };
 var bounceEight = {
-    start: {x:950,y:520,angle: -140,length: 0.60},
-    end: {x:1000,y:1200,angle: 0,length: 0}
+	start: {x:950,y:495,angle: -140,length: 0.60},
+	end: {x:1000,y:1200,angle: 0,length: 0}
   };   
- 
- function swingSound(){
-	document.getElementById("golf-shot").volume = 0.2;
-	document.getElementById('golf-shot').play();  
- }
+	  
 
 function batterUp(){
+	  
 	var ballArray = [ballOne, ballTwo, ballThree, ballFour, ballFive, ballSix, ballSeven, ballEight];
 	var	ballToUse = ballArray[Math.floor(Math.random() * ballArray.length)];
 	$(".field").append(ballToUse);
-	setTimeout(swingSound, 1000);
+	delaySwing = setTimeout(swingSound, 1000);
 	$(".ball img").animate({
 		width: "25px"
 	}, 5000, "easeInExpo");
@@ -150,30 +163,32 @@ function batterUp(){
 		$(".ball").removeClass("curve-eight");
     }
 }
-
+ function swingSound(){
+	document.getElementById("golf-shot").volume = 0.2;
+	document.getElementById('golf-shot').play();  
+ }
+ 
 //Collision detect/////
-var scoreBlue = 0;
-var scoreGreen = 0;
 $("#score-blue").html(scoreBlue);
 $("#score-green").html(scoreBlue);
 
-    function collision($div1, $div2) {
-      var x1 = $div1.offset().left;
-      var y1 = $div1.offset().top;
-      var h1 = $div1.outerHeight(true);
-      var w1 = $div1.outerWidth(true);
-      var b1 = y1 + h1;
-      var r1 = x1 + w1;
-      var x2 = $div2.offset().left;
-      var y2 = $div2.offset().top;
-      var h2 = $div2.outerHeight(true);
-      var w2 = $div2.outerWidth(true);
-      var b2 = y2 + h2;
-      var r2 = x2 + w2;
-        
-      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
-      return true;
-    }
+function collision($div1, $div2) {
+  var x1 = $div1.offset().left;
+  var y1 = $div1.offset().top;
+  var h1 = $div1.outerHeight(true);
+  var w1 = $div1.outerWidth(true);
+  var b1 = y1 + h1;
+  var r1 = x1 + w1;
+  var x2 = $div2.offset().left;
+  var y2 = $div2.offset().top;
+  var h2 = $div2.outerHeight(true);
+  var w2 = $div2.outerWidth(true);
+  var b2 = y2 + h2;
+  var r2 = x2 + w2;
+	
+  if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+  return true;
+}
 
 window.setInterval(function() {
 	$(".ball").each(function() { 
@@ -258,29 +273,26 @@ function updateScoreGreen() {
 	checkForWin();
 }			
 
-var timeCompleted;
-
 function checkForWin(){
 		if ((scoreBlue+scoreGreen)>= 1){
-			//window.location.replace("/#/1");//set variable clock & clear game - overvej bare at vise det på samme frame.
+			cancelGame();
 			timeCompleted = count;
-			alert ("hurra for en smartspiller" + timeCompleted);
-			count = 120;
-			clearInterval(counter);
-			clearInterval(batterUpInterval);
+			$(".box-wrapper.succes").css("display", "block");	
 		}
 }
-
-
+function cancelGame(){
+		clearInterval(delaySwing);
+		clearInterval(counter);
+		clearInterval(batterUpInterval);			
+		$( ".ball" ).remove();
+}
 //Timer///////////////
-var count = 120;
-var counter;
-
 function timer() {
     count = count - 1;
     if (count === -1) {
-        clearInterval(counter);
-		alert ("game over");
+			cancelGame();
+			$(".box-wrapper.failure").css("display", "block");
+			$(".total-score").html(scoreBlue+scoreGreen);
         return;
 		
     }
@@ -300,18 +312,17 @@ function timer() {
 	$("#counter-4").html(secondsString.slice(-1));		
 }
 
-
-$( document ).ready(function() {
-	"use strict";		
-
-//Prevent window scroll on arrow////////////////////
+	
+$( document ).ready(function(){
+"use strict";	
+//Prevent window scroll on arrow
 	window.addEventListener("keydown", function(event) {
-    if([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
-        event.preventDefault();
-    }
-}, false);
+		if([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+			event.preventDefault();
+		}
+	}, false);
 	 
-//Move flags//////////////////
+//Move flags
 $(function() {
   var direction,
   	  blueDirection,
@@ -340,7 +351,19 @@ $(function() {
       loop(e);
     }
   }
-  function startMovingBlue(blueDirection) {
+
+  function loop(e) {
+	  if (parseInt($("#flag-green").css("left")) >= 524 && parseInt($("#flag-green").css("left")) <=974){
+    move(e === 'left' ? -5 : 5, $('#flag-green'));
+	movingTimeout = setTimeout(loop, 1000/ FPS, direction);
+	} else if (parseInt($("#flag-green").css("left")) < 524){
+		$("#flag-green").css("left", "+=10");
+	} else if (parseInt($("#flag-green").css("left")) > 974){
+		$("#flag-green").css("left", "-=10");
+	}
+
+  }
+    function startMovingBlue(blueDirection) {
     if (movingTimeoutBlue === -1) {      
       loopBlue(blueDirection);
     }
@@ -351,22 +374,10 @@ $(function() {
 		move( blueDirection === 'left' ? -5 : 5, $('#flag-blue'));
 		movingTimeoutBlue = setTimeout(loopBlue, 1000/ FPS, blueDirection);
 	} else if (parseInt($("#flag-blue").css("left")) < 25){
-		$("#flag-blue").css("left", "+=8");
+		$("#flag-blue").css("d", "+=10");
 	} else if (parseInt($("#flag-blue").css("left")) > 475){
-		$("#flag-blue").css("left", "-=8");
+		$("#flag-blue").css("left", "-=10");
 	}
-  }
-
-  function loop(e) {
-	  if (parseInt($("#flag-green").css("left")) >= 524 && parseInt($("#flag-green").css("left")) <=974){
-    move(e === 'left' ? -5 : 5, $('#flag-green'));
-	movingTimeout = setTimeout(loop, 1000/ FPS, direction);
-	} else if (parseInt($("#flag-green").css("left")) < 524){
-		$("#flag-green").css("left", "+=8");
-	} else if (parseInt($("#flag-green").css("left")) > 974){
-		$("#flag-green").css("left", "-=8");
-	}
-
   }
 
   function move(offset, $target) {
@@ -382,6 +393,6 @@ $(function() {
     		movingTimeoutBlue = -1;
 	  }
   });
-}); //end move flags
+});
 	
 });
